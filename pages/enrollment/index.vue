@@ -1,6 +1,6 @@
 <template>
-    <div class="flex justify-between items-center bg-white p-6 md:ps-12">
-        <slot/>
+    <div>
+gdfh
     </div>
 </template>
 

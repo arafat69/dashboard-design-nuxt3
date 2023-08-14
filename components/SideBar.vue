@@ -1,10 +1,10 @@
 <template>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-        class="w-6 h-6 z-[1050] absolute top-1 left-3" @click="sidebar = !sidebar">
+        class="w-6 h-6 z-[1050] absolute top-1 left-3 md:hidden" @click="sidebar = !sidebar">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
     </svg>
 
-    <div class="h-screen bg-slate-100 w-72 px-6 md:w-16 md:px-1 lg:w-72 lg:px-6 pt-6 pb-3 transition duration-700 ease-in-out fixed top-0 flex justify-between flex-col gap-6 md:translate-x-0 overflow-y-scroll md:overflow-hidden"
+    <div class="h-screen bg-slate-100 w-72 px-6 md:w-16 md:px-1 lg:w-72 lg:px-6 pt-6 pb-3 transition duration-700 ease-in-out fixed top-0 flex justify-between flex-col gap-6 md:translate-x-0 overflow-y-scroll md:overflow-hidden z-10"
         :class="{ '-translate-x-[100%]': sidebar }">
         <div class="absolute right-2 top-2 md:hidden" @click="sidebar = true">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
