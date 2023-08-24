@@ -74,7 +74,9 @@
                             </select>
                         </div>
                         <div class="bg-white rounded-xl border border-slate-100 mt-4">
-                            <OverviewChart/>
+                            <client-only placeholder="Loading...">
+                                <OverviewChart />
+                            </client-only>
                         </div>
 
                         <!-- Top 10 Courses -->
@@ -168,7 +170,13 @@
 </template>
 
 <script setup>
-
+useSeoMeta({
+    title: 'Dashboard Shop',
+    ogTitle: 'Dashboard Shop',
+    description: 'This is cepron dashboard pannel',
+    ogDescription: 'This is cepron dashboard pannel.',
+    ogImage: './images/logo.svg',
+});
 const topCources = [
     {
         id: 1,

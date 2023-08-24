@@ -1,7 +1,5 @@
 <template>
-    <client-only placeholder="Loading...">
-        <apexChart height="300" :options="options" :series="series"></apexChart>
-    </client-only>
+    <apexChart height="300" :options="options" :series="series"></apexChart>
 </template>
 
 <script>
@@ -9,7 +7,6 @@
 export default {
     data() {
         return {
-
             // chart js
             options: {
                 chart: {
@@ -56,21 +53,20 @@ export default {
                             fontFamily: 'Poppins, sans-serif'
                         },
                     },
-
                 },
                 tooltip: {
                     y: {
                         formatter: function (val) {
-                            return "$ " + val + " thousands"
+                            return "$ " + val + " thousands";
                         }
                     }
                 },
             },
             series: [{
-                name: 'Net Profit',
-                data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-            }],
-        }
+                    name: 'Net Profit',
+                    data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+                }],
+        };
     },
 }
 </script>

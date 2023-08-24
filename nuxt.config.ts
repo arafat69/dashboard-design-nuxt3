@@ -10,6 +10,6 @@ export default defineNuxtConfig({
     },
   },
   plugins: [
-    '~/plugins/apexcharts.js',
+    { src: "~/plugins/apexcharts.js", mode: "client" }
   ],
 });
