@@ -17,12 +17,8 @@
                     <MagnifyingGlassIcon class="w-6 h-6 absolute top-2/4 right-4 transform -translate-y-2/4" />
                 </div>
 
-                <div
-                    class="p-4 bg-white h-14 rounded-xl border border-slate-200 justify-center items-center gap-1 inline-flex text-slate-800 text-sm font-normal">
-                    Filter
-                    <FunnelIcon class="w-6 h-6 text-slate-600" />
-                </div>
-                <FilterDropdown button-name="Filter" button-class="h-14 border border-slate-200" show-arrow-color="text-slate-600">
+                <FilterDropdown button-name="Filter" button-class="h-14 border border-slate-200"
+                    show-arrow-color="text-slate-600">
                     <a href="#" class="hover:bg-gray-100 text-gray-900 block px-4 py-2 text-sm">
                         Excel
                     </a>
@@ -33,6 +29,7 @@
                         CVC
                     </a>
                 </FilterDropdown>
+
                 <select name=""
                     class="p-4 lg:max-w-48 bg-white rounded-xl border border-slate-200 outline-none focus:ring lg:max-w-[220px] w-full flex-grow text-sm h-14">
                     <option value="">Sort by</option>
@@ -69,19 +66,61 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="enroll in enrollments" :key="enroll.id">
                             <td class="p-4 ext-slate-800 text-sm font-normal border-b">
-                                <span
-                                    class="w-6 h-6 bg-red-500 rounded-lg flex justify-center items-center text-white">5</span>
+                                {{ enroll.date }}
                             </td>
                             <td class="p-4 ext-slate-800 text-sm font-normal border-b">
-                                46wsg
+                                {{ enroll.student }}
                             </td>
                             <td class="p-4 ext-slate-800 text-sm font-normal border-b">
-                                fdshd
+                                {{ enroll.course }}
                             </td>
-                            <td class="p-4 ext-slate-800 text-sm font-normal border-b">
-                                tyu7ty
+                            <td class="p-4 ext-slate-800 text-sm font-normal border-b min-w-[240px]">
+                                <div class="flex justify-between items-center">
+                                    <span class="px-1.5 py-1 rounded-md text-white text-xs font-normal"
+                                        :class="checkStatus(enroll.status)">
+                                        {{ enroll.status }}
+                                    </span>
+                                    <nuxt-link v-if="enroll.isPaid" to="#"
+                                        class="px-2 py-1.5 bg-slate-600 rounded-lg text-white text-sm leading-normal">
+                                        Pay Now
+                                    </nuxt-link>
+
+                                    <!-- action button -->
+                                    <Menu as="div" class="relative inline-block text-right">
+                                        <div>
+                                            <MenuButton>
+                                                <EllipsisHorizontalIcon class="h-5 w-5 text-gray-800" aria-hidden="true" />
+                                            </MenuButton>
+                                        </div>
+                                        <transition enter-active-class="transition ease-out duration-100"
+                                            enter-from-class="transform opacity-0 scale-95"
+                                            enter-to-class="transform opacity-100 scale-100"
+                                            leave-active-class="transition ease-in duration-75"
+                                            leave-from-class="transform opacity-100 scale-100"
+                                            leave-to-class="transform opacity-0 scale-95">
+                                            <MenuItems
+                                                class="absolute right-5 z-10 w-24 top-3 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                                <div class="p-0">
+                                                    <MenuItem v-slot="{ active }">
+                                                    <nuxt-link to="/"
+                                                        :class="[active ? 'bg-gray-100 text-gray-900 cursor-pointer' : 'text-gray-700', 'block px-4 py-2 text-sm']">
+                                                        Edit
+                                                    </nuxt-link>
+                                                    </MenuItem>
+                                                    <MenuItem v-slot="{ active }">
+                                                    <nuxt-link to=""
+                                                        :class="[active ? 'bg-gray-100 text-gray-900 cursor-pointer' : 'text-gray-700', 'block px-4 py-2 text-sm']">
+                                                        Cancel
+                                                    </nuxt-link>
+                                                    </MenuItem>
+                                                </div>
+                                            </MenuItems>
+                                        </transition>
+                                    </Menu>
+
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -93,9 +132,154 @@
 </template>
 
 <script setup>
-import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid';
-import { FunnelIcon } from '@heroicons/vue/24/outline';
+useSeoMeta({
+    title: 'Enrollment',
+});
+
+import { MagnifyingGlassIcon, EllipsisHorizontalIcon } from '@heroicons/vue/20/solid';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+
+const enrollments = [
+    {
+        id: 1,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Confirmed',
+        isPaid: false
+    },
+    {
+        id: 2,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Confirmed',
+        isPaid: false
+    },
+    {
+        id: 3,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Pending',
+        isPaid: true
+    },
+    {
+        id: 4,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Pending',
+        isPaid: true
+    },
+    {
+        id: 5,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Confirmed',
+        isPaid: false
+    },
+    {
+        id: 6,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Cancelled',
+        isPaid: true
+    },
+    {
+        id: 7,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Confirmed',
+        isPaid: false
+    },
+    {
+        id: 8,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Cancelled',
+        isPaid: false
+    },
+    {
+        id: 9,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Pending',
+        isPaid: true
+    },
+    {
+        id: 10,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Cancelled',
+        isPaid: false
+    },
+    {
+        id: 15,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Confirmed',
+        isPaid: false
+    },
+    {
+        id: 16,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Cancelled',
+        isPaid: true
+    },
+    {
+        id: 17,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Confirmed',
+        isPaid: false
+    },
+    {
+        id: 18,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Cancelled',
+        isPaid: false
+    },
+    {
+        id: 19,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Pending',
+        isPaid: true
+    },
+    {
+        id: 11,
+        date: '12 Jul, 2023',
+        student: 'Mohammad Mahfuz',
+        course: 'Professional Web Development',
+        status: 'Cancelled',
+        isPaid: false
+    }
+];
+
+const checkStatus = (status) => {
+    if (status == 'Cancelled') {
+        return 'bg-red-500';
+    } else if (status == 'Confirmed') {
+        return 'bg-teal-500';
+    } else {
+        return 'bg-blue-500';
+    }
+}
 
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

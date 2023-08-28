@@ -46,7 +46,7 @@ const props = defineProps({
     buttonClass: {
         type: String,
         default: "bg-white hover:bg-gray-50 text-gray-900 shadow-sm"
-    }
+    },
     
 })
 </script>
