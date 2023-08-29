@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style>
-.menuItem .router-link-active {
+.menuItem .router-link-active, .menuItem .router-link-exact-active {
     background: #1E293B !important;
 }
 

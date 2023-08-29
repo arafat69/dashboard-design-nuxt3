@@ -133,31 +133,8 @@
                                 <NuxtLink to="#" class="text-right text-teal-500 text-xs font-normal">View All</NuxtLink>
                             </div>
                             <div class="grid pt-2 pb-6 md:grid-cols-2 xl:grid-cols-1 gap-3">
-                                <div v-for="cource in newCourses"
-                                    class="bg-white rounded-xl border border-slate-100 justify-start items-center gap-4 inline-flex p-2">
-                                    <img :src="cource.thumbnail" class="w-[100px] h-20 rounded-lg">
-                                    <div class="w-full">
-                                        <div class="line-clamp-1 text-ellipsis text-slate-800 text-sm font-normal">
-                                            {{ cource.title }}
-                                        </div>
-                                        <div class="text-slate-600 text-xs font-normal pt-[6px]">
-                                            {{ cource.author }}
-                                        </div>
-                                        <div class="justify-between items-center gap-6 flex pt-3">
-                                            <div class="items-center gap-1.5 flex">
-                                                <img src="icons/clock.svg" class="w-4 h-4" />
-                                                <span class="text-slate-600 text-xs font-normal">
-                                                    {{ cource.time }}
-                                                </span>
-                                            </div>
-                                            <div class="items-center gap-1.5 flex">
-                                                <img src="icons/video.svg" class="w-4 h-4" />
-                                                <span class="text-slate-600 text-xs font-normal">
-                                                    {{ cource.video }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div v-for="cource in newCourses" class="w-100">
+                                   <CourseCard  :course="cource"/>
                                 </div>
                             </div>
                         </div>
@@ -243,56 +220,56 @@ const topCources = [
 // new cources list
 const newCourses = [
     {
-        thumbnail: 'icons/course-thumbnail.svg',
+        thumbnail: '/icons/course-thumbnail.svg',
         title: 'Advance UI UX Design Course',
         author: 'Jhankar Mahbub',
         time: '12h 48m',
         video: '8 Video'
     },
     {
-        thumbnail: 'icons/course-thumbnail.svg',
+        thumbnail: '/icons/course-thumbnail.svg',
         title: 'Advance UI UX Design Course',
         author: 'Jhankar Mahbub',
         time: '12h 48m',
         video: '8 Video'
     },
     {
-        thumbnail: 'icons/course-thumbnail.svg',
+        thumbnail: '/icons/course-thumbnail.svg',
         title: 'Advance UI UX Design Course',
         author: 'Jhankar Mahbub',
         time: '12h 48m',
         video: '8 Video'
     },
     {
-        thumbnail: 'icons/course-thumbnail.svg',
+        thumbnail: '/icons/course-thumbnail.svg',
         title: 'Advance UI UX Design Course',
         author: 'Jhankar Mahbub',
         time: '12h 48m',
         video: '8 Video'
     },
     {
-        thumbnail: 'icons/course-thumbnail.svg',
+        thumbnail: '/icons/course-thumbnail.svg',
         title: 'Advance UI UX Design Course',
         author: 'Jhankar Mahbub',
         time: '12h 48m',
         video: '8 Video'
     },
     {
-        thumbnail: 'icons/course-thumbnail.svg',
+        thumbnail: '/icons/course-thumbnail.svg',
         title: 'Advance UI UX Design Course',
         author: 'Jhankar Mahbub',
         time: '12h 48m',
         video: '8 Video'
     },
     {
-        thumbnail: 'icons/course-thumbnail.svg',
+        thumbnail: '/icons/course-thumbnail.svg',
         title: 'Advance UI UX Design Course',
         author: 'Jhankar Mahbub',
         time: '12h 48m',
         video: '8 Video'
     },
     {
-        thumbnail: 'icons/course-thumbnail.svg',
+        thumbnail: '/icons/course-thumbnail.svg',
         title: 'Advance UI UX Design Course',
         author: 'Jhankar Mahbub',
         time: '12h 48m',
