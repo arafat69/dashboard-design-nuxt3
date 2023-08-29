@@ -14,7 +14,7 @@
                 <div class="relative flex-grow h-14">
                     <input type="text" placeholder="Search Student"
                         class="w-full pr-12 p-4 bg-slate-50 rounded-xl border border-slate-200 focus:ring outline-none text-slate-400 text-sm font-normal">
-                    <MagnifyingGlassIcon class="w-6 h-6 absolute top-2/4 right-4 transform -translate-y-2/4" />
+                    <MagnifyingGlassIcon class="w-6 h-6 text-slate-500 absolute top-2/4 right-4 transform -translate-y-2/4" />
                 </div>
 
                 <FilterDropdown button-name="Filter" button-class="h-14 border border-slate-200"
