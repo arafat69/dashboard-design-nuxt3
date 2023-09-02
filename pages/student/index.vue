@@ -18,7 +18,7 @@
                         class="w-6 h-6 text-slate-500 absolute top-2/4 right-4 transform -translate-y-2/4" />
                 </div>
 
-                <NuxtLink to="" class="btn-primary-outline px-6">
+                <NuxtLink to="/student/create" class="btn-primary-outline px-6">
                     <PlusIcon class="w-5 h-5 text-teal-400" />
                     New Student
                 </NuxtLink>

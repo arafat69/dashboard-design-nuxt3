@@ -92,7 +92,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(cource, index) in topCources">
+                                    <tr v-for="(cource, index) in topCources" :key="index">
                                         <td class="p-4 ext-slate-800 text-sm font-normal ">
                                             <span v-if="index == 0"
                                                 class="w-6 h-6 bg-red-500 rounded-lg flex justify-center items-center text-white">{{
@@ -133,7 +133,7 @@
                                 <NuxtLink to="#" class="text-right text-teal-500 text-xs font-normal">View All</NuxtLink>
                             </div>
                             <div class="grid pt-2 pb-6 md:grid-cols-2 xl:grid-cols-1 gap-3">
-                                <div v-for="cource in newCourses" class="w-100">
+                                <div v-for="cource in newCourses" :key="cource.id" class="w-100">
                                    <CourseCard  :course="cource"/>
                                 </div>
                             </div>

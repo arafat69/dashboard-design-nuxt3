@@ -33,10 +33,10 @@
                             </div>
                             <div class="text-slate-400 text-xs font-normal leading-none">m.mahfuz@gmail.com</div>
                         </div>
-                        <NuxtLink to=""
+                        <button @click="showModal = true"
                             class="px-2 py-1.5 rounded-md border border-blue-400 text-blue-400 text-xs font-normal leading-none">
                             Edit Profile
-                        </NuxtLink>
+                        </button>
                     </div>
 
                     <div class="px-6 pt-2 pb-6 bg-slate-50 rounded-xl border border-slate-100 mt-8">
@@ -93,7 +93,8 @@
                         <div class="py-3 text-teal-400 text-xs font-medium leading-none">Address Information</div>
                         <div class="mb-5">
                             <div class="text-slate-400 text-sm font-normal">Address</div>
-                            <div class="text-slate-800 text-sm font-normal">86737 Steuber Crescent Suite 012 New Mozelle, UT 00442-8898</div>
+                            <div class="text-slate-800 text-sm font-normal">86737 Steuber Crescent Suite 012 New Mozelle, UT
+                                00442-8898</div>
                         </div>
                         <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                             <div>
@@ -117,7 +118,9 @@
                 <div class="xl:border-s h-full xl:pl-4 xl:pt-12">
                     <div class="flex pb-4 gap-2 items-center">
                         <div class="text-slate-800 text-xl font-medium leading-7">Course Enrolled</div>
-                        <div class="w-6 h-6 bg-teal-500 rounded-md justify-center items-center flex text-white text-sm font-semibold">3</div>
+                        <div
+                            class="w-6 h-6 bg-teal-500 rounded-md justify-center items-center flex text-white text-sm font-semibold">
+                            3</div>
                     </div>
                     <div class="grid pt-2 pb-6 md:grid-cols-2 xl:grid-cols-1 gap-3">
                         <div v-for="course in cources" :key="course.id">
@@ -129,15 +132,165 @@
 
 
         </MainContent>
+
+        <ClientOnly>
+            <TransitionRoot as="template" :show="showModal">
+                <Dialog as="div" class="relative z-10" @close="open = false">
+                    <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0"
+                        enter-to="opacity-100" leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
+                        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                    </TransitionChild>
+
+                    <div class="fixed inset-0 z-10 overflow-y-auto">
+                        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                            <TransitionChild as="template" enter="ease-out duration-300"
+                                enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-200"
+                                leave-from="opacity-100 translate-y-0 sm:scale-100"
+                                leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+                                <DialogPanel
+                                    class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:max-w-2xl">
+                                    <div class="bg-white p-4 sm:p-6 md:min-h-[720px]">
+                                        <div class="">
+                                            <div class="text-slate-800 text-2xl font-semibold leading-loose">Edit student
+                                                info
+                                            </div>
+                                            <XCircleIcon
+                                                class="w-8 h-8 text-slate-500 absolute top-3 right-3 cursor-pointer"
+                                                @click="showModal = false" />
+                                        </div>
+
+                                        <div
+                                            class="h-11 border-b border-slate-200 justify-start items-center gap-8 inline-flex w-full mb-3">
+                                            <div class="py-3 border-b justify-start items-center gap-3 flex cursor-pointer"
+                                                :class="personalInfo ? 'border-teal-400' : 'border-transparent'"
+                                                @click="showTabMenu('personalInfo')">
+                                                <div class="text-teal-400 text-sm font-normal leading-tight tracking-tight">
+                                                    Personal Information</div>
+                                            </div>
+                                            <div class="py-3 border-b justify-start items-center gap-3 flex cursor-pointer"
+                                                :class="addressInfo ? 'border-teal-400' : 'border-transparent'"
+                                                @click="showTabMenu('addressInfo')">
+                                                <div
+                                                    class="text-slate-500 text-sm font-normal leading-tight tracking-tight">
+                                                    Address Information</div>
+                                            </div>
+                                        </div>
+
+                                        <div v-if="personalInfo">
+                                            <Input placeholder="Fiscal Code (CF)" required label="Fiscal Code (CF)" />
+                                            <div class="grid md:grid-cols-2 md:gap-4">
+                                                <Input label="Name" placeholder="Type Name" required />
+
+                                                <Input label="Surname" placeholder="Type surname" required />
+
+                                                <div>
+                                                    <Label title="Gender" required />
+                                                    <Select2 v-model="form.gender" :options="gender"
+                                                        placeholder="Select Gender" required />
+                                                </div>
+
+                                                <Input type="date" label="Date of Birth" required />
+
+                                                <div>
+                                                    <Label title="Province of Birth" required />
+                                                    <Select2 :options="gender" placeholder="Select Province of Birth" />
+                                                </div>
+
+                                                <div>
+                                                    <Label title="City of Birth" required />
+                                                    <Select2 :options="gender" placeholder="Select City of Birth"
+                                                        required />
+                                                </div>
+
+                                                <div>
+                                                    <Label title="Citizenship" required />
+                                                    <Select2 :options="gender" placeholder="Select Citizenship" />
+                                                </div>
+
+
+                                                <Input label="Telephone Number" placeholder="Enter Telephone Number" />
+
+                                                <Input type="text" label="Mobile Number" placeholder="Enter Mobile Number"
+                                                    required />
+
+                                                <Input type="email" label="Email" placeholder="Enter Email" required />
+                                            </div>
+                                        </div>
+
+                                        <div v-else>
+                                            <div class="grid md:grid-cols-3 md:gap-4">
+                                                <Input type="text" label="Residence Address"
+                                                    placeholder="Enter Residence Address" required class="col-span-2" />
+
+                                                <Input type="text" label="Civic No" placeholder="Enter Civic No" required />
+                                            </div>
+
+                                            <div class="mb-4">
+                                                <Label title="Province of Residence" required />
+                                                <Select2 :options="gender" placeholder="Select Province of Residence" />
+                                            </div>
+
+                                            <div class="grid md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <Label title="City of Residence" required />
+                                                    <Select2 :options="gender" placeholder="Select City of Residence"
+                                                        required />
+                                                </div>
+                                                <Input type="text" label="Postal Code" placeholder="Enter Postal Code"
+                                                    required />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div
+                                        class="p-6 bg-white border-t border-slate-200 justify-center items-center gap-4 flex flex-wrap w-full">
+                                        <button
+                                            class="grow shrink basis-0 h-14 p-4 rounded-[10px] border border-teal-400 text-teal-400 text-base font-medium"
+                                            @click="showModal = false">
+                                            Cancel
+                                        </button>
+                                        <button
+                                            class="grow shrink basis-0 h-14 p-4 bg-teal-400 rounded-[10px] text-white text-base font-medium">Update</button>
+                                    </div>
+                                </DialogPanel>
+                            </TransitionChild>
+                        </div>
+                    </div>
+                </Dialog>
+            </TransitionRoot>
+        </ClientOnly>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
+import { ArrowLeftIcon, XCircleIcon } from '@heroicons/vue/24/solid';
+
 useSeoMeta({
     title: 'Students',
 });
 
-import { ArrowLeftIcon } from '@heroicons/vue/24/solid';
+const showModal = ref(false)
+
+const personalInfo = ref(true)
+const addressInfo = ref(false)
+
+const form = {
+    gender: '',
+}
+
+const gender = [
+    'Male',
+    'Female',
+    'Others'
+]
+
+const showTabMenu = (item) => {
+    item == 'personalInfo' ? personalInfo.value = true : personalInfo.value = false;
+    item == 'addressInfo' ? addressInfo.value = true : addressInfo.value = false;
+}
 
 const cources = [
     {

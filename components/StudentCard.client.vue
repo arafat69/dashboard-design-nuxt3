@@ -15,7 +15,7 @@
         <div class="text-slate-800 text-xs font-normal w-36 flex-grow">{{ props.student.email }}</div>
         <div class="text-slate-800 text-xs font-normal w-36 flex-grow">{{ props.student.textCode }}</div>
         <div class="flex justify-between w-38 gap-5 flex-grow xl:flex-grow-0">
-            <NuxtLink to="#" class="text-right text-blue-500 text-xs font-normal">
+            <NuxtLink :to="`/student/`+props.student.id" class="text-right text-blue-500 text-xs font-normal">
                 Edit
             </NuxtLink>
             <NuxtLink to="#" class="text-right text-teal-500 text-xs font-normal underline">
