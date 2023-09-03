@@ -5,10 +5,10 @@
                 <span class="block text-sm text-slate-500">Hello,</span>
                 <div class="flex items-center gap-1">
                     <span class="text-slate-900 text-2xl font-semibold">Luna Maria</span>
-                    <img src="icons/hello.svg" class="w-8 h-8">
+                    <img src="/icons/hello.svg" class="w-8 h-8">
                 </div>
             </div>
-            <NuxtLink to="#" class="btn-primary">
+            <NuxtLink to="/admission" class="btn-primary">
                 <img src="/icons/new_admission.svg" alt="">
                 New Admission
             </NuxtLink>
@@ -19,7 +19,7 @@
             <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
                 <div class="p-6 bg-pink-50 rounded-2xl">
                     <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center">
-                        <img src="icons/earning.svg">
+                        <img src="/icons/earning.svg">
                     </div>
                     <div class="text-slate-500 text-sm font-normal tracking-widest pt-6">
                         Today’s Earning
@@ -29,7 +29,7 @@
 
                 <div class="p-6 bg-blue-100 rounded-2xl">
                     <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center">
-                        <img src="icons/total-students.svg">
+                        <img src="/icons/total-students.svg">
                     </div>
                     <div class="text-slate-500 text-sm font-normal tracking-widest pt-6">
                         Total Students
@@ -39,7 +39,7 @@
 
                 <div class="p-6 bg-yellow-100 rounded-2xl">
                     <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center">
-                        <img src="icons/total-courses.svg">
+                        <img src="/icons/total-courses.svg">
                     </div>
                     <div class="text-slate-500 text-sm font-normal tracking-widest pt-6">
                         Total Courses
@@ -49,7 +49,7 @@
 
                 <div class="p-6 bg-green-100 rounded-2xl">
                     <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center">
-                        <img src="icons/sold-course.svg">
+                        <img src="/icons/sold-course.svg">
                     </div>
                     <div class="text-slate-500 text-sm font-normal tracking-widest pt-6">
                         Courses Sold
