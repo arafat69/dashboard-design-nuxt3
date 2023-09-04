@@ -7,12 +7,39 @@
         <MainContent class="pt-0 pb-0">
 
             <div class="grid grid-cols-1 gap-6 xl:grid-cols-3 h-full">
-                <div class="xl:col-span-2 pt-4">
+                <div class="xl:col-span-2 pt-4 flex flex-col gap-y-6">
                     <div class="text-slate-800 text-2xl font-semibold leading-loose">New Admission</div>
+                    <div>
+                        <div class="text-slate-800 text-base font-medium leading-normal">Course</div>
+                        <CustomSelectBox />
+                    </div>
 
+                    <!-- Students -->
+                    <div class="justify-between items-center gap-3 flex">
+                        <div class="text-slate-800 text-base font-medium leading-normal">Students</div>
+                        <button
+                            class="pl-2 pr-3 py-1.5 rounded-[10px] border border-slate-200 justify-center items-center gap-1 flex">
+                            <PlusIcon class="w-6 h-6 text-slate-800" />
+                            <span class="text-slate-800 text-sm font-semibold leading-tight">New</span>
+                        </button>
+                    </div>
 
+                    <!-- Add Students -->
+                    <div
+                        class="p-4 bg-white rounded-xl border border-slate-200 flex-col justify-center items-center gap-4 flex">
+                        <div class="w-full py-6 bg-red-50 rounded-lg text-center text-red-500 text-sm font-normal leading-tight tracking-tight">
+                            No students selected
+                        </div>
+
+                        <button class="self-stretch p-2 justify-center items-center gap-3 inline-flex">
+                            <LinkIcon class="w-6 h-6 text-blue-500"/>
+                            <div class="text-blue-500 text-sm font-normal leading-tight tracking-tight">Add Students</div>
+                        </button>
+                    </div>
 
                 </div>
+
+                <!-- rightBar section -->
                 <div class="xl:border-s h-full xl:pl-4 pt-6 xl:border-l xl:border-slate-100 flex flex-col gap-8">
 
                     <!-- Order Summary -->
@@ -82,17 +109,20 @@
                     <div>
                         <div class="text-slate-800 text-base font-medium leading-normal mb-3">Payment Method</div>
                         <div class="items-center gap-4 flex">
-                            <input id="bank" name="payment" type="radio" class="">
-                            <label for="bank" class="p-4 bg-white rounded-xl border border-slate-200 flex-col justify-start items-start gap-3 inline-flex">
+                            <input id="bank" name="payment" type="radio" class="sr-only peer/bank">
+                            <label for="bank"
+                                class="cursor-pointer peer-checked/bank:border-teal-400 peer-checked/bank:bg-teal-50 p-4 bg-white rounded-xl border border-slate-200 flex-col justify-start items-start gap-3 inline-flex grow">
                                 <div class="h-[52px] flex-col justify-start items-start gap-2 flex">
-                                    <div class="w-5 h-5 bg-white rounded-full border border-slate-200"></div>
+                                    <div class="w-5 h-5 bg-white rounded-full border border-slate-200">
+                                    </div>
                                     <div class="text-slate-800 text-sm font-semibold leading-tight">Bank Pay
                                     </div>
                                 </div>
                             </label>
-                            
-                            <input id="online" name="payment" type="radio" class="">
-                            <label for="online" class="p-4 bg-white rounded-xl border border-slate-200 flex-col justify-start items-start gap-3 inline-flex">
+
+                            <input id="online" name="payment" type="radio" class="sr-only peer/online">
+                            <label for="online"
+                                class="cursor-pointer p-4 bg-white peer-checked/online:border-teal-400 peer-checked/online:bg-teal-50 rounded-xl border border-slate-200 flex-col justify-start items-start gap-3 inline-flex grow">
                                 <div class="h-[52px] flex-col justify-start items-start gap-2 flex">
                                     <div class="w-5 h-5 bg-white rounded-full border border-slate-200"></div>
                                     <div class="text-slate-800 text-sm font-semibold leading-tight">Online Pay
@@ -102,7 +132,11 @@
                         </div>
                     </div>
 
-
+                    <!-- pay button -->
+                    <button class="h-14 p-4 bg-slate-200 rounded-[10px] text-white text-base font-medium leading-normal"
+                        disabled>
+                        Pay Online
+                    </button>
                 </div>
             </div>
 
@@ -243,7 +277,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { ArrowLeftIcon, XCircleIcon } from '@heroicons/vue/24/solid';
+import { ArrowLeftIcon, XCircleIcon, PlusIcon, LinkIcon } from '@heroicons/vue/24/solid';
 
 useSeoMeta({
     title: 'Students',
