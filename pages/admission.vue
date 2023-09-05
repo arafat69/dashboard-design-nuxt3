@@ -18,7 +18,7 @@
                     <div class="justify-between items-center gap-3 flex">
                         <div class="text-slate-800 text-base font-medium leading-normal">Students</div>
                         <button
-                            class="pl-2 pr-3 py-1.5 rounded-[10px] border border-slate-200 justify-center items-center gap-1 flex">
+                            class="pl-2 pr-3 py-1.5 rounded-[10px] border border-slate-200 justify-center items-center gap-1 flex" @click="showModal = true">
                             <PlusIcon class="w-6 h-6 text-slate-800" />
                             <span class="text-slate-800 text-sm font-semibold leading-tight">New</span>
                         </button>
@@ -143,7 +143,7 @@
 
         </MainContent>
 
-        <ClientOnly>
+        <!-- <ClientOnly> -->
             <TransitionRoot as="template" :show="showModal">
                 <Dialog as="div" class="relative z-10" @close="open = false">
                     <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0"
@@ -162,8 +162,8 @@
                                     class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:max-w-2xl">
                                     <div class="bg-white p-4 sm:p-6 md:min-h-[720px]">
                                         <div class="">
-                                            <div class="text-slate-800 text-2xl font-semibold leading-loose">Edit student
-                                                info
+                                            <div class="text-slate-800 text-2xl font-semibold leading-loose">
+                                                Add New Student
                                             </div>
                                             <XCircleIcon
                                                 class="w-8 h-8 text-slate-500 absolute top-3 right-3 cursor-pointer"
@@ -269,7 +269,7 @@
                     </div>
                 </Dialog>
             </TransitionRoot>
-        </ClientOnly>
+        <!-- </ClientOnly> -->
 
     </div>
 </template>

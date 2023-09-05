@@ -2,7 +2,7 @@
     <div>
         <Header>
             <Breadcumb item="Students" item-link="/student" active="Details" />
-            <NuxtLink to="#" class="btn-primary">
+            <NuxtLink to="/admission" class="btn-primary">
                 <img src="/icons/new_admission.svg" alt="">
                 New Admission
             </NuxtLink>

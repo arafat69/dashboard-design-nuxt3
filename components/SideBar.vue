@@ -75,7 +75,7 @@ export default {
                 {
                     icon: '/icons/course.svg',
                     name: 'Courses',
-                    page_url: '/courses'
+                    page_url: '/course'
                 },
                 {
                     icon: '/icons/balance.svg',
