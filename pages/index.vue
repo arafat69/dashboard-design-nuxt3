@@ -68,7 +68,7 @@
                                 Statistics
                             </div>
                             <select
-                                class="bg-white rounded-lg border border-slate-200 text-slate-500 text-sm font-normal py-[10px] px-3 focus:ring focus:ring-teal-400 outline-none">
+                                class="bg-white rounded-lg border border-slate-200 text-slate-500 text-sm font-normal py-[10px] focus:ring-1 focus:border-teal-400 focus:ring-teal-400 outline-none">
                                 <option value="">This Year</option>
                                 <option value="">This Month</option>
                             </select>

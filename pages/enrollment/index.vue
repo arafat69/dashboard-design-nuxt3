@@ -11,11 +11,7 @@
         <MainContent>
 
             <div class="flex flex-wrap gap-6">
-                <div class="relative flex-grow h-14">
-                    <input type="text" placeholder="Search Student"
-                        class="w-full pr-12 p-4 bg-slate-50 rounded-xl border border-slate-200 focus:ring outline-none text-slate-400 text-sm font-normal">
-                    <MagnifyingGlassIcon class="w-6 h-6 text-slate-500 absolute top-2/4 right-4 transform -translate-y-2/4" />
-                </div>
+                <InputSearch placeholder="Search Student" class="grow" />
 
                 <FilterDropdown button-name="Filter" button-class="h-14 border border-slate-200"
                     show-arrow-color="text-slate-600">
@@ -31,7 +27,7 @@
                 </FilterDropdown>
 
                 <select name=""
-                    class="p-4 lg:max-w-48 bg-white rounded-xl border border-slate-200 outline-none focus:ring lg:max-w-[220px] w-full flex-grow text-sm h-14">
+                    class="p-4 lg:max-w-48 bg-white rounded-xl border border-slate-200 outline-none focus:ring-1 lg:max-w-[220px] w-full flex-grow text-sm h-14 focus:ring-teal-400 focus:border-teal-400">
                     <option value="">Sort by</option>
                     <option value="">Pending</option>
                     <option value="">Confirmed</option>
@@ -39,7 +35,7 @@
                 </select>
                 <div class="flex-grow">
                     <input type="date"
-                        class="w-full h-14 p-4 bg-slate-50 rounded-xl border border-slate-200 focus:ring outline-none text-slate-400 text-sm font-normal">
+                        class="w-full h-14 p-4 bg-slate-50 rounded-xl border border-slate-200 focus:ring-1 outline-none text-slate-400 text-sm font-normal focus:ring-teal-400 focus:border-teal-400">
                 </div>
                 <Dropdown button-name="Export to" button-class="bg-blue-500 text-white h-14" show-arrow-color="text-white">
                     <a href="#" class="hover:bg-gray-100 text-gray-900 block px-4 py-2 text-sm">
@@ -67,16 +63,16 @@
                     </thead>
                     <tbody>
                         <tr v-for="enroll in enrollments" :key="enroll.id">
-                            <td class="p-4 ext-slate-800 text-sm font-normal border-b">
+                            <td class="p-4 text-slate-800 text-sm font-normal border-b">
                                 {{ enroll.date }}
                             </td>
-                            <td class="p-4 ext-slate-800 text-sm font-normal border-b">
+                            <td class="p-4 text-slate-800 text-sm font-normal border-b">
                                 {{ enroll.student }}
                             </td>
-                            <td class="p-4 ext-slate-800 text-sm font-normal border-b">
+                            <td class="p-4 text-slate-800 text-sm font-normal border-b">
                                 {{ enroll.course }}
                             </td>
-                            <td class="p-4 ext-slate-800 text-sm font-normal border-b min-w-[240px]">
+                            <td class="p-4 text-slate-800 text-sm font-normal border-b min-w-[240px]">
                                 <div class="flex justify-between items-center">
                                     <span class="px-1.5 py-1 rounded-md text-white text-xs font-normal"
                                         :class="checkStatus(enroll.status)">
