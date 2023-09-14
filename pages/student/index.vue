@@ -11,12 +11,7 @@
         <MainContent>
 
             <div class="flex flex-wrap gap-3 sm:gap-6">
-                <div class="relative flex-grow h-14">
-                    <input type="text" placeholder="Search Student"
-                        class="w-full pr-12 p-4 bg-slate-50 rounded-xl border border-slate-200 focus:ring outline-none text-slate-400 text-sm font-normal">
-                    <MagnifyingGlassIcon
-                        class="w-6 h-6 text-slate-500 absolute top-2/4 right-4 transform -translate-y-2/4" />
-                </div>
+                <InputSearch placeholder="Search Student" class="grow" />
 
                 <NuxtLink to="/student/create" class="btn-primary-outline px-6">
                     <PlusIcon class="w-5 h-5 text-teal-400" />

@@ -18,7 +18,7 @@
             <NuxtLink :to="`/student/`+props.student.id" class="text-right text-blue-500 text-xs font-normal">
                 Edit
             </NuxtLink>
-            <NuxtLink to="#" class="text-right text-teal-500 text-xs font-normal underline">
+            <NuxtLink to="/admission" class="text-right text-teal-500 text-xs font-normal underline">
                 Enroll to Course
             </NuxtLink>
         </div>

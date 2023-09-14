@@ -1,18 +1,10 @@
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-        class="w-6 h-6 z-[1050] absolute top-1 left-3 md:hidden" @click="sidebar = !sidebar">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
-    </svg>
+    <Bars3BottomLeftIcon class="w-7 h-7 z-10 absolute top-10 left-3 md:hidden" @click="sidebar = !sidebar"/>
 
-    <div class="h-screen bg-slate-100 w-72 px-6 md:w-16 md:px-1 lg:w-72 lg:px-6 pt-6 pb-3 transition duration-700 ease-in-out fixed top-0 flex justify-between flex-col gap-6 md:translate-x-0 overflow-y-scroll md:overflow-hidden z-10"
+    <div class="h-screen bg-slate-100 w-72 px-6 md:w-16 md:px-1 lg:w-72 lg:px-6 pt-6 pb-3 transition duration-700 ease-in-out fixed top-0 flex justify-between flex-col gap-6 md:translate-x-0 overflow-y-scroll md:overflow-hidden z-40"
         :class="{ '-translate-x-[100%]': sidebar }">
         <div class="absolute right-2 top-2 md:hidden" @click="sidebar = true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path fill-rule="evenodd"
-                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
-                    clip-rule="evenodd" />
-            </svg>
-
+            <XCircleIcon class="w-8 h-8 text-slate-500"/>
         </div>
         <div class="sidebar">
             <NuxtLink to="/" class="gap-2 items-end md:hidden lg:flex flex">
@@ -52,7 +44,11 @@
 </template>
 
 <script>
+import { Bars3BottomLeftIcon, XCircleIcon } from '@heroicons/vue/24/solid';
 export default {
+    components:{
+        Bars3BottomLeftIcon, XCircleIcon
+    },
     data() {
         return {
             sidebar: true,

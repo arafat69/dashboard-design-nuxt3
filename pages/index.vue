@@ -130,7 +130,7 @@
                         <div class="xl:border-l xl:border-s-slate-200 pl-4">
                             <div class="flex justify-between items-center gap-6">
                                 <div class="text-slate-800 text-base font-medium">New Courses</div>
-                                <NuxtLink to="#" class="text-right text-teal-500 text-xs font-normal">View All</NuxtLink>
+                                <NuxtLink to="/course" class="text-right text-teal-500 text-xs font-normal">View All</NuxtLink>
                             </div>
                             <div class="grid pt-2 pb-6 md:grid-cols-2 xl:grid-cols-1 gap-3">
                                 <div v-for="cource in newCourses" :key="cource.id" class="w-100">

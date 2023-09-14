@@ -233,7 +233,7 @@
                                         <NuxtLink to="/student" class="grow p-4 rounded-[10px] border border-teal-400 text-teal-400 text-base font-medium leading-normal">
                                             Back to List
                                         </NuxtLink>
-                                        <NuxtLink to="" class="text-white text-base font-medium leading-normal grow p-4 bg-teal-400 rounded-[10px]">
+                                        <NuxtLink to="/admission" class="text-white text-base font-medium leading-normal grow p-4 bg-teal-400 rounded-[10px]">
                                             Enroll to Course
                                         </NuxtLink>
                                 </div>

@@ -78,10 +78,10 @@
                                         :class="checkStatus(enroll.status)">
                                         {{ enroll.status }}
                                     </span>
-                                    <nuxt-link v-if="enroll.isPaid" to="#"
+                                    <NuxtLink v-if="enroll.isPaid" to="/admission"
                                         class="px-2 py-1.5 bg-slate-600 rounded-lg text-white text-sm leading-normal">
                                         Pay Now
-                                    </nuxt-link>
+                                    </NuxtLink>
 
                                     <!-- action button -->
                                     <Menu as="div" class="relative inline-block text-right">

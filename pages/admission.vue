@@ -70,7 +70,7 @@
                             <div class="text-slate-800 text-xs font-normal w-36 flex-grow">+12517918588</div>
                             <div class="text-slate-800 text-xs font-normal w-36 flex-grow">VAxzaRmYbIPcUY8L</div>
                             <div class="flex justify-between w-38 gap-5 flex-grow xl:flex-grow-0">
-                                <button class="text-right text-blue-500 text-xs font-normal">
+                                <button class="text-right text-blue-500 text-xs font-normal" @click="destroyStudent">
                                    <img src="/icons/trash.svg" alt="">
                                 </button>
                             </div>
@@ -509,7 +509,7 @@
                                             Cancel
                                         </button>
                                         <button
-                                            class="grow h-14 p-4 bg-teal-400 rounded-[10px] text-white text-base font-medium flex justify-center items-center gap-2">
+                                            class="grow h-14 p-4 bg-teal-400 rounded-[10px] text-white text-base font-medium flex justify-center items-center gap-2" @click="addStudent">
                                             Add
                                         </button>
                                     </div>
@@ -529,6 +529,9 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { ArrowLeftIcon, XCircleIcon, PlusIcon, LinkIcon, ArrowRightIcon, CheckCircleIcon } from '@heroicons/vue/24/solid';
+import { useToast } from 'vue-toastification';
+
+const Toast = useToast()
 
 useSeoMeta({
     title: 'Students',
@@ -552,6 +555,15 @@ const gender = [
     'Female',
     'Others'
 ]
+
+const addStudent = ()=>{
+    studentModalShow.value = false;
+    Toast.success('Student Added Success');
+};
+
+const destroyStudent = ()=>{
+    Toast.error('Student Deleted');
+};
 
 const showTabMenu = (item) => {
     if (item == 'personalInfo') {
